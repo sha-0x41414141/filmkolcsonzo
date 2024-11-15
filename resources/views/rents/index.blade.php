@@ -39,7 +39,7 @@
         </tr>
         @foreach($rents as $rent)
             <tr>
-                <form action="" method="post">
+                <form action="{{route('rents.update', $rent->id)}}" method="post">
                     <td>{{$rent->film->film_title}}</td>
                     <td>{{$rent->film->film_director}}</td>
                     <td>{{$rent->rent_start}}</td>

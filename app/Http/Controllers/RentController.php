@@ -12,6 +12,7 @@ class RentController extends Controller
         $rents = Rent::all();
         return view('rents.index', compact('rents'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -27,5 +28,15 @@ class RentController extends Controller
         ]);
 
         return redirect()->route('films.index')->with('success', 'Film rented.');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'rent_end' => 'required|string|max:255'
+        ]);
+
+        $rent = Rent::findOrFail($id);
+        
     }
 }
