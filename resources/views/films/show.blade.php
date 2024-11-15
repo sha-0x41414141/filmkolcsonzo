@@ -20,5 +20,13 @@
     <p>Film director: <b>{{$film->film_director}}</b></p>
     <p>Genre: <b>{{$film->genre->genre_name}}</b></p>
     <p>Film year: <b>{{$film->film_year}}</b></p>
+
+    <form action="">
+        <label for="renter">Name: </label>
+        <input type="text" name="renter" id="renter"> <br>
+        <label for="rent_start">Rent start: </label>
+        <input type="text" name="rent_start" id="rent_start"> <br>
+        <button type="submit">Rent</button>
+    </form>
 </body>
 </html>
