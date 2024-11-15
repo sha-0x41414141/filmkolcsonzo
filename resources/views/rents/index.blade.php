@@ -34,6 +34,7 @@
             <th>Film title</th>
             <th>Film director</th>
             <th>Rent start</th>
+            <th>Rent end</th>
             <th>End rent</th>
         </tr>
         @foreach($rents as $rent)
@@ -42,6 +43,7 @@
                     <td>{{$rent->film->film_title}}</td>
                     <td>{{$rent->film->film_director}}</td>
                     <td>{{$rent->rent_start}}</td>
+                    <td><input type="text" name="rent_end" id="rent_end"></td>
                     <td><button type="submit">End rent</button></td>    
                 </form>
             </tr>
