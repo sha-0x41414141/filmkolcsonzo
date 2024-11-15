@@ -29,7 +29,8 @@
             @endforeach
         </select> <br>
         <label for="film_year">Film year: </label>
-        <input type="number" min="0" name="film_year" id="film_year">
+        <input type="number" min="0" name="film_year" id="film_year"> <br>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
