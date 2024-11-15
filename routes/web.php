@@ -18,6 +18,7 @@ Route::post('/films/film', [RentController::class, 'store'])->name("rents.store"
 
 Route::get('/rented', [RentController::class, 'index'])->name("rents.index");
 Route::put('/rented/{id}', [RentController::class, 'update'])->name('rents.update');
+Route::get('/rentals', [RentController::class, 'show'])->name('rents.show');
 
 Route::get('/', function () {
     return view('welcome');

@@ -13,6 +13,11 @@ class RentController extends Controller
         return view('rents.index', compact('rents'));
     }
 
+    public function show()
+    {
+        return view('rents.show');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
