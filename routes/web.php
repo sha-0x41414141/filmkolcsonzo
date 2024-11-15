@@ -3,13 +3,15 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/new-genre', [GenreController::class, 'index'])->name("genre.index");
 Route::post('/new-genre', [GenreController::class, 'store'])->name("genre.store");
 
-Route::get('/new-film', [FilmController::class, 'index'])->name("films.create");
+Route::get('/new-film', [FilmController::class, 'create'])->name("films.create");
 Route::post('/new-film', [FilmController::class, 'store'])->name("film.store");
+Route::get('/films', [FilmController::class, 'index'])->name("films.index");
 
 Route::get('/', function () {
     return view('welcome');

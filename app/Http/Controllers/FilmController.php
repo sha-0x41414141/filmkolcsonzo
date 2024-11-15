@@ -10,6 +10,13 @@ class FilmController extends Controller
 {
     public function index()
     {
+        $films = Film::whereDoesntHave('rents', function ($query) {
+            $query->whereNull('rent_end');
+        })->get();
+        return view("films.index", compact('films'));
+    }
+    public function create()
+    {
         $genres = Genre::all();
         return view('films.create', compact('genres'));
     }
