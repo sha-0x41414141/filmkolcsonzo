@@ -27,7 +27,9 @@
             @foreach($genres as $genre)
                 <option value="{{$genre->id}}">{{$genre->genre_name}}</option>
             @endforeach
-        </select>
+        </select> <br>
+        <label for="film_year">Film year: </label>
+        <input type="number" min="0" name="film_year" id="film_year">
     </form>
 </body>
 </html>
