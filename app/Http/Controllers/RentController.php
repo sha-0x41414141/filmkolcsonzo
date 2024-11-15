@@ -9,7 +9,8 @@ class RentController extends Controller
 {
     public function index()
     {
-        
+        $rents = Rent::where('rent_end', 'is', 'null');
+        return view('rents.index', compact('rents'));
     }
     public function store(Request $request)
     {
