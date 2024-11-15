@@ -23,15 +23,16 @@ class FilmController extends Controller
     {
         $films = Film::whereDoesntHave('rents', function ($query) {
             $query->whereNull('rent_end');
-            if (isset($request->film_title))
-            {
-                $query->where('film_title', '=', $request->film_title);
-            }
-            if (isset($request->film_director))
-            {
-                $query->where('film_director', '=', $request->film_director);
-            }
-        })->get();
+
+        })->get();            
+        if (isset($request->film_title))
+        {
+            $films->where('film_title', '=', $request->film_title);
+        }
+        if (isset($request->film_director))
+        {
+            $films->where('film_director', '=', $request->film_director);
+        }
         return view("films.index", compact('films'));
     }
     public function create()
