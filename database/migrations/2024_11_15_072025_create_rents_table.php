@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("renter");
             $table->unsignedBigInteger("film_id");
             $table->date("rent_start");
-            $table->date("rent_end");
+            $table->date("rent_end")->nullable();
             $table->softDeletes();
             $table->timestamps();
             $table->foreign("film_id")->references("id")->on("films")->onDelete("cascade");
