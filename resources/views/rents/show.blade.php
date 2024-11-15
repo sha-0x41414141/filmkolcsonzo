@@ -32,16 +32,17 @@
     <h3>Search:</h3>
     <form action="{{route('rents.show')}}" method="get">
         <label for="film_title">Film title:</label>
-        <input type="text" name="film_title" id="film_title">
+        <input type="text" name="film_title" id="film_title" value="{{request('film_title')}}">
         <label for="film_director">Film director:</label>
-        <input type="text" name="film_director" id="film_director">
+        <input type="text" name="film_director" id="film_director" value="{{request('film_director')}}">
         <label for="genre_name">Genre:</label>
-        <input type="text" name="genre_name" id="genre_name">
-        <label for="genre_name">Rent start:</label>
-        <input type="date" name="genre_name" id="genre_name">
-        <label for="genre_name">Rent end:</label>
-        <input type="date" name="genre_name" id="genre_name">
+        <input type="text" name="genre_name" id="genre_name" value="{{request('genre_name')}}">
+        <label for="rent_start">Rent start:</label>
+        <input type="date" name="rent_start" id="rent_start" value="{{request('rent_start')}}">
+        <label for="rent_end">Rent end:</label>
+        <input type="date" name="rent_end" id="rent_end" value="{{request('rent_end')}}">
         <button type="submit">Search</button>
+        <a href="{{route('rents.show')}}">Reset</a>
     </form><br>
     <table>
         <tr>

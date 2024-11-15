@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rent;
+use App\Models\Film;
+use App\Models\Genre;
 
 class RentController extends Controller
 {
@@ -15,18 +17,24 @@ class RentController extends Controller
 
     public function show(Request $request)
     {
-        $rents = Rent::query();
+        $query = Rent::query();
         if (isset($request->film_title))
         {
-            $rents->where("film_title", "like", $request->film_title);
+            $query->where("film_title", "like", $request->film_title);
         }
         else if (isset($request->film_director))
         {
             $rents->where("film_director", "like", $request->film_title);
-        }else if (isset($request->film_director))
-        {
-            $rents->where("film_director", "like", $request->film_title);
         }
+        else if (isset($request->rent_start))
+        {
+            $rents->where("rent_start", "=", $request->rent_start);
+        }
+        else if (isset($request->rent_end))
+        {
+            $rents->where("rent_start", "=", $request->rent_end);
+        }
+        $rents = $query->get();
         return view('rents.show', compact('rents'));
     }
 
