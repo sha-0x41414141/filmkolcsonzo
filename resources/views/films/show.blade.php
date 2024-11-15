@@ -16,6 +16,9 @@
         {{session('success')}}
     @endif
     <h1>Rent film</h1>
-    <p>Film title: <b>{{$}}</b></p>
+    <p>Film title: <b>{{$film->film_title}}</b></p>
+    <p>Film director: <b>{{$film->film_director}}</b></p>
+    <p>Genre: <b>{{$film->genre->genre_name}}</b></p>
+    <p>Film year: <b>{{$film->film_year}}</b></p>
 </body>
 </html>
