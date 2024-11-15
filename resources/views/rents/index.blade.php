@@ -40,10 +40,12 @@
         @foreach($rents as $rent)
             <tr>
                 <form action="{{route('rents.update', $rent->id)}}" method="post">
+                    @csrf
+                    @method('PUT')
                     <td>{{$rent->film->film_title}}</td>
                     <td>{{$rent->film->film_director}}</td>
                     <td>{{$rent->rent_start}}</td>
-                    <td><input type="text" name="rent_end" id="rent_end"></td>
+                    <td><input type="date" name="rent_end" id="rent_end"></td>
                     <td><button type="submit">End rent</button></td>    
                 </form>
             </tr>

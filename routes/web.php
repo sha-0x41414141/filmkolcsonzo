@@ -17,7 +17,7 @@ Route::delete('/films/film/{id}', [FilmController::class, 'destroy'])->name("fil
 Route::post('/films/film', [RentController::class, 'store'])->name("rents.store");
 
 Route::get('/rented', [RentController::class, 'index'])->name("rents.index");
-Route::put('/rented', [RentController::class, 'update'])->name('rents.update');
+Route::put('/rented/{id}', [RentController::class, 'update'])->name('rents.update');
 
 Route::get('/', function () {
     return view('welcome');

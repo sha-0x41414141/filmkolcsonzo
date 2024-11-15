@@ -9,7 +9,7 @@ class RentController extends Controller
 {
     public function index()
     {
-        $rents = Rent::all();
+        $rents = Rent::all()->whereNotNull('rent_end');
         return view('rents.index', compact('rents'));
     }
 
@@ -33,10 +33,15 @@ class RentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'rent_end' => 'required|string|max:255'
+            'rent_end' => 'required|date|max:255'
         ]);
+
 
         $rent = Rent::findOrFail($id);
         
+        $rent->rent_end = $request->rent_end;
+        $rent->save();
+
+        return redirect()->back()->with('success', 'Rent updated.');
     }
 }
