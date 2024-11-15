@@ -29,6 +29,23 @@
         {{session('success')}}
     @endif
     <h1 style="text-align: center;">Rentals</h1>
-
+    <table>
+        <tr>
+            <th>Film title</th>
+            <th>Film director</th>
+            <th>Genre</th>
+            <th>Rent start</th>
+            <th>Rent end</th>
+        </tr>
+        @foreach($rents as $rent)
+            <tr>
+                <td>{{$rent->film->film_title}}</td>
+                <td>{{$rent->film->film_director}}</td>
+                <td>{{$rent->film->genre->genre_name}}</td>
+                <td>{{$rent->rent_start}}</td>
+                <td>{{$rent->rent_end}}</td>
+            </tr>
+        @endforeach
+    </table>
 </body>
 </html>

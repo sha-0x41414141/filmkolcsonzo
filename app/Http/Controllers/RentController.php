@@ -15,7 +15,8 @@ class RentController extends Controller
 
     public function show()
     {
-        return view('rents.show');
+        $rents = Rent::all();
+        return view('rents.show', compact('rents'));
     }
 
     public function store(Request $request)
