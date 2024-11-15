@@ -26,13 +26,22 @@
             <th>Film director</th>
             <th>Film year</th>
             <th>Rent</th>
+            <th>Delete</th>
         </tr>
         @foreach($films as $film)
             <tr>
-                <td>{{$film->film_title}}</td>
-                <td>{{$film->film_director}}</td>
-                <td>{{$film->film_year}}</td>
-                <td><button type="submit">Rent</button></td>
+                <form action="{{route('')}}" methdo="post">
+                    @csrf
+                    <td>{{$film->film_title}}</td>
+                    <td>{{$film->film_director}}</td>
+                    <td>{{$film->film_year}}</td>
+                    <td><button type="submit">Rent</button></td>
+                </form>
+                <form action="" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <td><button type>Delete</button></td>
+                </form>
             </tr>
         @endforeach
     </table>
