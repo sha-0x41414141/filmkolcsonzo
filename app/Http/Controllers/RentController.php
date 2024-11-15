@@ -9,7 +9,7 @@ class RentController extends Controller
 {
     public function index()
     {
-        $rents = Rent::all()->whereNotNull('rent_end');
+        $rents = Rent::all()->whereNull('rent_end');
         return view('rents.index', compact('rents'));
     }
 
@@ -38,7 +38,11 @@ class RentController extends Controller
 
 
         $rent = Rent::findOrFail($id);
-        
+
+        if ($rent->rent_start > $request->rent_end)
+        {
+            return redirect()->back()->with('error', "Rent end can't be before rent start.");
+        }
         $rent->rent_end = $request->rent_end;
         $rent->save();
 
