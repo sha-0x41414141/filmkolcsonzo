@@ -23,11 +23,11 @@
 
     <form action="{{route('rents.store')}}" method="post">
         @csrf
-        <input type="hidden" name="film_id" id="film_id">
+        <input type="hidden" name="film_id" id="film_id" value="{{$film->id}}">
         <label for="renter">Name: </label>
         <input type="text" name="renter" id="renter"> <br>
         <label for="rent_start">Rent start: </label>
-        <input type="text" name="rent_start" id="rent_start"> <br>
+        <input type="date" name="rent_start" id="rent_start"> <br>
         <button type="submit">Rent</button>
     </form>
 </body>
