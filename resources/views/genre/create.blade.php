@@ -14,6 +14,7 @@
     @if (session('success'))
         {{session('success')}}
     @endif
+    <h1>New genre</h1>
     <form action="{{route('genre.store')}}" method="post">
         @csrf
         <label for="genre_name">Genre name: </label>

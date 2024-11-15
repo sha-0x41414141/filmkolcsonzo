@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/new-genre', [GenreController::class, 'index'])->name("genre.index");
 Route::post('/new-genre', [GenreController::class, 'store'])->name("genre.store");
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
