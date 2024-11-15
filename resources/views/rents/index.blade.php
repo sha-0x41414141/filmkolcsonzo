@@ -25,6 +25,10 @@
         @endforeach
     @endif
 
+    @if(session('error'))
+        {{session('error')}}
+    @endif
+
     @if (session('success'))
         {{session('success')}}
     @endif
