@@ -14,7 +14,8 @@
     @if (session('success'))
         {{session('success')}}
     @endif
-    <form action="{{route('genre.store')}}">
+    <form action="{{route('genre.store')}}" method="post">
+        @csrf
         <label for="genre_name">Genre name: </label>
         <input type="text" name="genre_name" id="genre_name"> <br>
         <button type="submit">Submit</button>
