@@ -17,7 +17,7 @@
     @endif
     <h1>New film</h1>
 
-    <form action="{{route('films.index')}}" method="post">
+    <form action="{{route('films.create')}}" method="post">
         @csrf
         <label for="film_title">Film title: </label>
         <input type="text" name="film_title" id="film_title"> <br>
