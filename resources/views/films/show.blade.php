@@ -23,6 +23,7 @@
 
     <form action="{{route('rents.store')}}" method="post">
         @csrf
+        <input type="hidden" name="film_id" id="film_id">
         <label for="renter">Name: </label>
         <input type="text" name="renter" id="renter"> <br>
         <label for="rent_start">Rent start: </label>
