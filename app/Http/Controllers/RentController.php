@@ -13,9 +13,20 @@ class RentController extends Controller
         return view('rents.index', compact('rents'));
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        $rents = Rent::all();
+        $rents = Rent::query();
+        if (isset($request->film_title))
+        {
+            $rents->where("film_title", "like", $request->film_title);
+        }
+        else if (isset($request->film_director))
+        {
+            $rents->where("film_director", "like", $request->film_title);
+        }else if (isset($request->film_director))
+        {
+            $rents->where("film_director", "like", $request->film_title);
+        }
         return view('rents.show', compact('rents'));
     }
 

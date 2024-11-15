@@ -30,7 +30,7 @@
     @endif
     <h1 style="text-align: center;">Rentals</h1>
     <h3>Search:</h3>
-    <form action="">
+    <form action="{{route('rents.show')}}" method="get">
         <label for="film_title">Film title:</label>
         <input type="text" name="film_title" id="film_title">
         <label for="film_director">Film director:</label>
