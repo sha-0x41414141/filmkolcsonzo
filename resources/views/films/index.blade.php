@@ -19,6 +19,15 @@
     }
 </style>
 <body>
+    @if($errors->any())
+        @foreach($errors->all() as $error)
+            {{$error}}<br>
+        @endforeach
+    @endif
+
+    @if (session('success'))
+        {{session('success')}}
+    @endif
     <h1 style="text-align: center">Films</h1>
     <table>
         <tr>
