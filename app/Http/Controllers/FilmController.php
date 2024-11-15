@@ -13,9 +13,11 @@ class FilmController extends Controller
         $film = Film::findOrFail($id);
         return view('films.show', ['film' => $film]);
     }
-    public function delete($id)
+    public function destroy($id)
     {
-        
+        $film = Film::findOrFail($id);
+        Film::destroy($id);
+        return redirect()->back()->with('success', "Film deleted.");
     }
     public function index()
     {
