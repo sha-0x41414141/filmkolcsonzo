@@ -14,8 +14,9 @@ Route::post('/new-film', [FilmController::class, 'store'])->name("film.store");
 Route::get('/films', [FilmController::class, 'index'])->name("films.index");
 Route::get('/films/film/{id}', [FilmController::class, 'show'])->name("films.show");
 Route::delete('/films/film/{id}', [FilmController::class, 'destroy'])->name("films.delete");
-
 Route::post('/films/film', [RentController::class, 'store'])->name("rents.store");
+
+Route::get('/rented', [RentController::class, 'index'])->name("rents.index");
 
 Route::get('/', function () {
     return view('welcome');

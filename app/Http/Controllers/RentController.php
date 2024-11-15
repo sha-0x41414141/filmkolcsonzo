@@ -7,6 +7,10 @@ use App\Models\Rent;
 
 class RentController extends Controller
 {
+    public function index()
+    {
+        
+    }
     public function store(Request $request)
     {
         $request->validate([
