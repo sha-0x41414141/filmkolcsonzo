@@ -19,10 +19,18 @@ class FilmController extends Controller
         Film::destroy($id);
         return redirect()->back()->with('success', "Film deleted.");
     }
-    public function index()
+    public function index(Request $request)
     {
         $films = Film::whereDoesntHave('rents', function ($query) {
             $query->whereNull('rent_end');
+            if (isset($request->film_title))
+            {
+                $query->where('film_title', '=', $request->film_title);
+            }
+            if (isset($request->film_director))
+            {
+                $query->where('film_director', '=', $request->film_director);
+            }
         })->get();
         return view("films.index", compact('films'));
     }

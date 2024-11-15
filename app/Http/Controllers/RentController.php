@@ -17,10 +17,11 @@ class RentController extends Controller
 
     public function show(Request $request)
     {
+        $film = Film::all();
         $query = Rent::query();
         if (isset($request->film_title))
         {
-            $film = Film::where('film_title', '=', $request->film_title)->first();
+            $film = Film::all()->where('film_title', '=', $request->film_title)->first();
             if ($film)
             {
                 $query->where("film_id", "=", $film->id);
@@ -28,7 +29,7 @@ class RentController extends Controller
         }
         else if (isset($request->film_director))
         {
-            $film = Film::where('film_director', '=', $request->film_director)->first();
+            $film = Film::all()->where('film_director', '=', $request->film_director)->first();
             if ($film)
             {
                 $query->where("film_id", "=", $film->id);

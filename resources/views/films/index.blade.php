@@ -28,6 +28,15 @@
     @if (session('success'))
         {{session('success')}}
     @endif
+    <h3>Search:</h3>
+    <form action="{{route('films.index')}}" method="get">
+        <label for="film_title">Film title:</label>
+        <input type="text" name="film_title" id="film_title" value="{{request('film_title')}}">
+        <label for="film_director">Film director:</label>
+        <input type="text" name="film_director" id="film_director" value="{{request('film_director')}}">
+        <button type="submit">Search</button>
+        <a href="{{route('films.index')}}">Reset</a>
+    </form><br>
     <h1 style="text-align: center">Films</h1>
     <table>
         <tr>
