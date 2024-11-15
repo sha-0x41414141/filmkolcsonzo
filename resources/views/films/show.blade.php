@@ -21,7 +21,8 @@
     <p>Genre: <b>{{$film->genre->genre_name}}</b></p>
     <p>Film year: <b>{{$film->film_year}}</b></p>
 
-    <form action="">
+    <form action="{{route('rents.store')}}" method="post">
+        @csrf
         <label for="renter">Name: </label>
         <input type="text" name="renter" id="renter"> <br>
         <label for="rent_start">Rent start: </label>
