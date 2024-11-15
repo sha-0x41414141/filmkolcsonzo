@@ -20,19 +20,27 @@ class RentController extends Controller
         $query = Rent::query();
         if (isset($request->film_title))
         {
-            $query->where("film_title", "like", $request->film_title);
+            $film = Film::where('film_title', '=', $request->film_title)->first();
+            if ($film)
+            {
+                $query->where("film_id", "=", $film->id);
+            }
         }
         else if (isset($request->film_director))
         {
-            $rents->where("film_director", "like", $request->film_title);
+            $film = Film::where('film_director', '=', $request->film_director)->first();
+            if ($film)
+            {
+                $query->where("film_id", "=", $film->id);
+            }
         }
         else if (isset($request->rent_start))
         {
-            $rents->where("rent_start", "=", $request->rent_start);
+            $query->where("rent_start", "=", $request->rent_start);
         }
         else if (isset($request->rent_end))
         {
-            $rents->where("rent_start", "=", $request->rent_end);
+            $query->where("rent_start", "=", $request->rent_end);
         }
         $rents = $query->get();
         return view('rents.show', compact('rents'));
