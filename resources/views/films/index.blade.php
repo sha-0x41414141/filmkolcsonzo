@@ -30,7 +30,7 @@
         </tr>
         @foreach($films as $film)
             <tr>
-                <form action="{{route('')}}" methdo="post">
+                <form action="{{route('films.show', $film->id)}}" methdo="post">
                     @csrf
                     <td>{{$film->film_title}}</td>
                     <td>{{$film->film_director}}</td>

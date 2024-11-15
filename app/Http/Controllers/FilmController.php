@@ -8,6 +8,10 @@ use App\Models\Film;
 
 class FilmController extends Controller
 {
+    public function show($id)
+    {
+        return view('films.show');
+    }
     public function index()
     {
         $films = Film::whereDoesntHave('rents', function ($query) {

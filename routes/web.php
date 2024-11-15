@@ -12,6 +12,7 @@ Route::post('/new-genre', [GenreController::class, 'store'])->name("genre.store"
 Route::get('/new-film', [FilmController::class, 'create'])->name("films.create");
 Route::post('/new-film', [FilmController::class, 'store'])->name("film.store");
 Route::get('/films', [FilmController::class, 'index'])->name("films.index");
+Route::get('/films/film/{id}', [FilmController::class, 'show'])->name("films.show");
 
 Route::get('/', function () {
     return view('welcome');
