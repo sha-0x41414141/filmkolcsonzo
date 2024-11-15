@@ -34,14 +34,16 @@
             <th>Film title</th>
             <th>Film director</th>
             <th>Rent start</th>
-            <th>Rent end</th>
+            <th>End rent</th>
         </tr>
         @foreach($rents as $rent)
             <tr>
-                <td>{{$rent->film->film_title}}</td>
-                <td>{{$rent->film->film_director}}</td>
-                <td>{{$rent->film->rent_start}}</td>
-                <td><button type="submit"></button></td>
+                <form action="" method="post">
+                    <td>{{$rent->film->film_title}}</td>
+                    <td>{{$rent->film->film_director}}</td>
+                    <td>{{$rent->rent_start}}</td>
+                    <td><button type="submit">End rent</button></td>    
+                </form>
             </tr>
         @endforeach
     </table>
