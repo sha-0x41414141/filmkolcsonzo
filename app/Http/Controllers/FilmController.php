@@ -10,7 +10,12 @@ class FilmController extends Controller
 {
     public function show($id)
     {
-        return view('films.show');
+        $film = Film::findOrFail($id);
+        return view('films.show', ['film' => $film]);
+    }
+    public function delete($id)
+    {
+        
     }
     public function index()
     {

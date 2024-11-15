@@ -13,6 +13,7 @@ Route::get('/new-film', [FilmController::class, 'create'])->name("films.create")
 Route::post('/new-film', [FilmController::class, 'store'])->name("film.store");
 Route::get('/films', [FilmController::class, 'index'])->name("films.index");
 Route::get('/films/film/{id}', [FilmController::class, 'show'])->name("films.show");
+Route::delete('/films/film/{id}', [FilmController::class, 'destroy'])->name("films.delete");
 
 Route::get('/', function () {
     return view('welcome');

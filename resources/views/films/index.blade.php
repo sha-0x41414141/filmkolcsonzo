@@ -37,7 +37,7 @@
                     <td>{{$film->film_year}}</td>
                     <td><button type="submit">Rent</button></td>
                 </form>
-                <form action="" method="post">
+                <form action="{{route('films.delete', $film->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <td><button type>Delete</button></td>
