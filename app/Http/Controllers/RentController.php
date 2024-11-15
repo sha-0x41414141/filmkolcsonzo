@@ -20,7 +20,7 @@ class RentController extends Controller
         $query = Rent::query();
         if (isset($request->film_title))
         {
-            $query->where("film_title", "like", $request->film_title);
+            $query->where("film->film_title", "like", $request->film_title);
         }
         else if (isset($request->film_director))
         {
