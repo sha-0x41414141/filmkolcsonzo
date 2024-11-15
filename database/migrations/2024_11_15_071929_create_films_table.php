@@ -19,7 +19,6 @@ return new class extends Migration
             $table->integer("film_year");
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign("genre_id")->references("id")->on("genres")->onDelete("cascade");
         });
     }
 
